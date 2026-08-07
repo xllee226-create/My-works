@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="职达27：面向2027届财经高校学生的岗位适配与批量投递助手演示" />
+  <title>职达27｜岗位适配与批量投递助手</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <aside class="rail">
+    <div class="brand">
+      <div class="brand-mark">27</div>
+      <div><strong>职达27</strong><span>JobFit Copilot</span></div>
+    </div>
+    <nav aria-label="主导航">
+      <button class="nav-item active" data-view="jobs"><span>01</span>岗位匹配</button>
+      <button class="nav-item" data-view="queue"><span>02</span>投递队列 <em id="queueBadge">0</em></button>
+      <button class="nav-item" data-view="verify"><span>03</span>验收看板</button>
+    </nav>
+    <div class="rail-note">
+      <b>演示边界</b>
+      <p>只模拟填写和提交，不登录、不操作真实招聘账号。</p>
+    </div>
+  </aside>
+
+  <main>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">2027 AUTUMN RECRUITMENT · MVP</p>
+        <h1>先解释“为什么适合”，再决定“是否投递”</h1>
+      </div>
+      <div class="checked">岗位核验日期<br><strong>2026.08.02</strong></div>
+    </header>
+
+    <section class="candidate-strip" aria-label="候选人画像">
+      <div><span>候选人</span><strong>李昔伦</strong></div>
+      <div><span>院校 / 专业</span><strong>西南财经大学 · 管理科学与工程硕士</strong></div>
+      <div><span>目标</span><strong>AI产品 / 产品运营 / 用户研究</strong></div>
+      <div><span>边界</span><strong>正式岗≥80% · 月薪≥9K · 11城</strong></div>
+    </section>
+
+    <section class="view active" id="view-jobs">
+      <div class="metric-band">
+        <div class="metric primary"><span>真实岗位池</span><strong>50</strong><small>公开来源可追溯</small></div>
+        <div class="metric"><span>直接可投</span><strong>26</strong><small>简历证据已覆盖</small></div>
+        <div class="metric"><span>修改后可投</span><strong>16</strong><small>只重组真实经历</small></div>
+        <div class="metric"><span>不建议投</span><strong>8</strong><small>硬门槛或方向冲突</small></div>
+        <div class="metric"><span>正式 / 实习</span><strong>42 / 8</strong><small>实习占比16%</small></div>
+      </div>
+
+      <div class="workspace">
+        <section class="filters" aria-label="岗位筛选">
+          <div class="filter-title"><strong>岗位过滤器</strong><button id="resetFilters">重置</button></div>
+          <label>关键词<input id="searchInput" type="search" placeholder="公司、岗位、方向" /></label>
+          <label>岗位类型<select id="typeFilter"><option value="全部">全部</option><option>正式</option><option>实习</option></select></label>
+          <label>匹配结论<select id="verdictFilter"><option value="全部">全部</option><option>直接可投</option><option>修改后可投</option><option>不建议投</option></select></label>
+          <label>城市<select id="cityFilter"><option value="全部">全部</option></select></label>
+          <label>排序<select id="sortFilter"><option value="score">匹配分从高到低</option><option value="id">原始岗位顺序</option><option value="company">公司名称</option></select></label>
+          <div class="rule-block">
+            <b>硬门槛先行</b>
+            <ol>
+              <li>2027届与招聘批次</li>
+              <li>11个意向城市</li>
+              <li>正式岗薪资下限9K</li>
+              <li>排除纯销售/前台/主播</li>
+              <li>实习岗总量≤20%</li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="results">
+          <div class="results-head">
+            <div><strong id="resultCount">50 个岗位</strong><span>点击岗位查看证据、差距和定制建议</span></div>
+            <button class="action dark" id="addAllEligible">加入42个可投岗位</button>
+          </div>
+          <div class="job-head"><span>岗位 / 来源</span><span>类型与地点</span><span>薪资</span><span>匹配</span><span></span></div>
+          <div id="jobList" class="job-list" aria-live="polite"></div>
+        </section>
+      </div>
+    </section>
+
+    <section class="view" id="view-queue">
+      <div class="section-intro">
+        <div><p class="eyebrow">HUMAN-IN-THE-LOOP</p><h2>用户确认后，才进入模拟投递</h2><p>每一步保留日志；薪资未公开的岗位会在提交前暂停核验。</p></div>
+        <button class="action dark" id="runSimulation" disabled>开始模拟投递</button>
+      </div>
+      <div class="queue-layout">
+        <div>
+          <div class="queue-head"><strong>投递队列</strong><button id="clearQueue">清空队列</button></div>
+          <div id="queueEmpty" class="empty-state"><b>队列还是空的</b><p>回到“岗位匹配”加入单个岗位，或一次加入全部42个可投岗位。</p></div>
+          <div id="queueList" class="queue-list"></div>
+        </div>
+        <aside class="process-log">
+          <strong>模拟执行日志</strong>
+          <div class="process-step"><i>1</i><span>审阅简历证据<small>仅使用真实经历</small></span></div>
+          <div class="process-step"><i>2</i><span>生成定制表达<small>重组关键词，不编造</small></span></div>
+          <div class="process-step"><i>3</i><span>填写申请表单<small>Demo内模拟字段映射</small></span></div>
+          <div class="process-step"><i>4</i><span>提交与记录<small>不访问真实招聘账号</small></span></div>
+          <div id="logFeed" class="log-feed"><p>等待开始……</p></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="view" id="view-verify">
+      <div class="section-intro">
+        <div><p class="eyebrow">ACCEPTANCE TEST</p><h2>不是“推荐得多”，而是“能解释、会拒绝”</h2></div>
+      </div>
+      <div class="verify-grid">
+        <div class="score-ring" aria-label="验收通过率84%"><div><strong>84%</strong><span>42 / 50</span></div></div>
+        <div class="verify-copy">
+          <h3>核心验收已经满足</h3>
+          <p>50个真实岗位中，26个可直接投递、16个修改真实经历表达后可投，共42个满足要求，高于40/50目标。</p>
+          <div class="bar-row"><span>正式岗位占比</span><b>84%</b><i><em style="width:84%"></em></i></div>
+          <div class="bar-row"><span>实习岗位占比</span><b>16%</b><i><em style="width:16%"></em></i></div>
+          <div class="bar-row"><span>推荐命中率</span><b>84%</b><i><em style="width:84%"></em></i></div>
+        </div>
+        <div class="negative-proof">
+          <h3>8个负例证明筛选有效</h3>
+          <ul>
+            <li><b>能力门槛：</b>算法、测试开发、后端、数据开发</li>
+            <li><b>岗位性质：</b>机构销售经理命中“纯销售”黑名单</li>
+            <li><b>城市+薪资：</b>重庆且8—10K的岗位被双重拦截</li>
+          </ul>
+        </div>
+        <div class="quality-note">
+          <h3>数据质量声明</h3>
+          <p>岗位来自企业官网、校园招聘页、牛客职位页和高校就业网。动态页面可能在后续变更；正式提交前必须再次确认在招状态、薪资与批次。</p>
+          <p>“直接可投”表示简历证据覆盖度，不等同于录用概率；未公开薪资不会被模型臆测。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <aside class="drawer" id="detailDrawer" aria-hidden="true">
+    <button class="drawer-close" id="drawerClose" aria-label="关闭">×</button>
+    <div id="drawerContent"></div>
+  </aside>
+  <div class="scrim" id="scrim"></div>
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="data/jobs.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
