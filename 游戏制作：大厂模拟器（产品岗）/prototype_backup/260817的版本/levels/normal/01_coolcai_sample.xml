@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Work>
+  <GlobalSettings>
+    <EmployeeSettings>
+      <Employee name="Mahavir">
+        <attribute name="stress" startValue="0" minValue="0" maxValue="99" />
+      </Employee>
+    </EmployeeSettings>
+    <OfficeManager>
+      <attribute name="stress" startValue="0" minValue="0" maxValue="99" />
+    </OfficeManager>
+    <TaskSettings>
+      <TaskSize name="small" hitpoints="40" overdueTime="60" cashValue="2" />
+      <TaskSize name="medium" hitpoints="70" overdueTime="100" cashValue="4" />
+      <TaskSize name="large" hitpoints="110" overdueTime="150" cashValue="7" />
+    </TaskSettings>
+  </GlobalSettings>
+  <LevelSettings levelTime="600" deadlineDay="2" deadlineBonus="1000" underDeadlinePerDayBonus="500" playfieldWidth="800" playfieldHeight="600" startingCash="10">
+    <DayAttributes>
+    </DayAttributes>
+    <AllowedPowerups>
+      <powerup name="Coffee" />
+      <powerup name="Donut" />
+    </AllowedPowerups>
+    <TaskBurstList>
+      <burst numTasks="1" delayToNextBurstMin="38" delayToNextBurstMax="48" />
+    </TaskBurstList>
+    <LevelGoals>
+      <goal owner="Mahavir" name="prototypeCoreTasks" description="Prototype.Goal.01.CoreTasks" evaluateAt="continuously" required="1" displayType="fraction" displayValue="12" thoughtBubbleIcon="GenericTaskGoodBubble" unitName="GoalUnitName.tasks" employeeStressOffset="-20">
+        <subgoal><![CDATA[
+          [Mahavir levelTasksCompleted] >= 12
+        ]]></subgoal>
+      </goal>
+      <goal owner="Mahavir" description="Prototype.Goal.01.ProductTasks" evaluateAt="continuously" required="1" displayType="fraction" displayValue="2" thoughtBubbleIcon="OrangeTaskGoodBubble" unitName="GoalUnitName.tasks" employeeStressOffset="-20">
+        <subgoal><![CDATA[
+          [Mahavir levelOrangeCompleted] >= 2
+        ]]></subgoal>
+      </goal>
+      <goal owner="Mahavir" description="Prototype.Goal.01.DataTasks" evaluateAt="continuously" required="1" displayType="fraction" displayValue="2" thoughtBubbleIcon="GreenTaskGoodBubble" unitName="GoalUnitName.tasks" employeeStressOffset="-20">
+        <subgoal><![CDATA[
+          [Mahavir levelGreenCompleted] >= 2
+        ]]></subgoal>
+      </goal>
+      <goal owner="Mahavir" description="Prototype.Goal.01.EngineeringTasks" evaluateAt="continuously" required="1" displayType="fraction" displayValue="2" thoughtBubbleIcon="BlueTaskGoodBubble" unitName="GoalUnitName.tasks" employeeStressOffset="-20">
+        <subgoal><![CDATA[
+          [Mahavir levelBlueCompleted] >= 2
+        ]]></subgoal>
+      </goal>
+      <goal owner="Mahavir" description="Prototype.Goal.01.GrowthTasks" evaluateAt="continuously" required="1" displayType="fraction" displayValue="2" thoughtBubbleIcon="GenericTaskGoodBubble" unitName="GoalUnitName.tasks" employeeStressOffset="-20">
+        <subgoal><![CDATA[
+          [Mahavir levelPurpleCompleted] >= 2
+        ]]></subgoal>
+      </goal>
+      <goal owner="Mahavir" description="Prototype.Goal.01.Recover" evaluateAt="continuously" required="0" displayType="meter" displayValue="60" thoughtBubbleIcon="CouchGoodBubble" unitName="GoalUnitName.seconds" employeeStressOffset="-20">
+        <subgoal><![CDATA[
+          [Mahavir LevelSleepHearts] >= 60
+        ]]></subgoal>
+      </goal>
+      <goal owner="Mahavir" dependsOnGoal="prototypeCoreTasks" description="Prototype.Goal.01.Stretch" evaluateAt="continuously" required="0" displayType="fraction" displayValue="6" thoughtBubbleIcon="GenericTaskGoodBubble" unitName="GoalUnitName.tasks" employeeStressOffset="-20">
+        <OnGoalInit>
+          <set entity="Mahavir" attribute="levelTasksCompleted" value="0" />
+        </OnGoalInit>
+        <subgoal><![CDATA[
+          [Mahavir levelTasksCompleted] >= 6
+        ]]></subgoal>
+      </goal>
+    </LevelGoals>
+    <TaskRatios>
+      <TaskType name="orange" ratio="1" />
+      <TaskType name="green" ratio="1" />
+      <TaskType name="blue" ratio="1" />
+      <TaskType name="purple" ratio="1" />
+      <TaskSize name="small" ratio="1" />
+      <TaskSize name="medium" ratio="0" />
+      <TaskSize name="large" ratio="0" />
+    </TaskRatios>
+    <LevelLayout>
+      <StorageCloset x="105" y="3" storageCapacity="20" />
+      <Desk owner="Mahavir" x="352" y="280" />
+      <HeartStation name="Couch" x="420" y="128" />
+      <HeartStation name="WaterCooler" x="210" y="128" />
+      <OfficeManagerDesk x="512" y="400" />
+    </LevelLayout>
+  </LevelSettings>
+</Work>

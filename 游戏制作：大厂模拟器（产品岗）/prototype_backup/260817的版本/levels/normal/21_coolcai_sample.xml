@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Work>
+  <GlobalSettings>
+    <EmployeeSettings>
+      <Employee name="Ashley">
+        <MoodifyCondition moodifier="SELF" action="workingOn:orange" attribute="stress" offset="0.4" />
+      </Employee>
+      <Employee name="Nadine">
+        <MoodifyCondition moodifier="SELF" action="workingOn:green" attribute="stress" offset="0.8" />
+      </Employee>
+      <Employee name="Pearl">
+        <MoodifyCondition moodifier="SELF" action="workingOn:blue" attribute="stress" offset="0.6" />
+      </Employee>
+      <Employee name="Luke">
+        <MoodifyCondition moodifier="SELF" action="workingOn:purple" attribute="stress" offset="0.4" />
+      </Employee>
+    </EmployeeSettings>
+    <TaskSettings>
+      <TaskSize name="small" hitpoints="35" overdueTime="80" cashValue="2" />
+      <TaskSize name="medium" hitpoints="75" overdueTime="120" cashValue="4" />
+      <TaskSize name="large" hitpoints="125" overdueTime="180" cashValue="7" />
+    </TaskSettings>
+  </GlobalSettings>
+  <LevelSettings levelTime="600" deadlineDay="5" deadlineBonus="1000" underDeadlinePerDayBonus="500" playfieldWidth="800" playfieldHeight="600" startingCash="48">
+    <DayAttributes>
+    </DayAttributes>
+    <TaskBurstList>
+      <burst numTasks="2" delayToNextBurstMin="25" delayToNextBurstMax="35" />
+      <burst numTasks="1" delayToNextBurstMin="18" delayToNextBurstMax="28" />
+      <burst numTasks="3" delayToNextBurstMin="35" delayToNextBurstMax="45" />
+    </TaskBurstList>
+    <AllowedPowerups>
+      <powerup name="Coffee" />
+      <powerup name="Donut" />
+      <powerup name="DietSoda" />
+      <powerup name="Brownie" />
+      <powerup name="BlueHelpBook" />
+      <powerup name="GreenHelpBook" />
+      <powerup name="OrangeHelpBook" />
+      <powerup name="PurpleHelpBook" />
+    </AllowedPowerups>
+    <NewEmployees>
+      <employee name="Nadine" />
+      <employee name="Ashley" />
+    </NewEmployees>
+    <LevelGoals>
+      <goal owner="Ashley" name="prototypeOrangeAI" description="Prototype.Goal.21.OrangeAI" evaluateAt="continuously" required="1" displayType="fraction" displayValue="1" employeeStressOffset="-20">
+        <subgoal><![CDATA[
+          [Ashley LevelOrangeHelpBookHearts] >= 1
+        ]]></subgoal>
+      </goal>
+      <goal owner="Ashley" dependsOnGoal="prototypeOrangeAI" description="Prototype.Goal.21.OrangeReview" evaluateAt="continuously" required="1" displayType="fraction" displayValue="8" thoughtBubbleIcon="OrangeTaskGoodBubble" unitName="GoalUnitName.tasks" employeeStressOffset="-20">
+        <OnGoalInit>
+          <set entity="Ashley" attribute="levelOrangeCompleted" value="0" />
+        </OnGoalInit>
+        <subgoal><![CDATA[
+          [Ashley levelOrangeCompleted] >= 8
+        ]]></subgoal>
+      </goal>
+      <goal owner="Nadine" name="prototypeGreenAI" description="Prototype.Goal.21.GreenAI" evaluateAt="continuously" required="1" displayType="fraction" displayValue="1" employeeStressOffset="-20">
+        <subgoal><![CDATA[
+          [Nadine LevelGreenHelpBookHearts] >= 1
+        ]]></subgoal>
+      </goal>
+      <goal owner="Nadine" dependsOnGoal="prototypeGreenAI" description="Prototype.Goal.21.GreenReview" evaluateAt="continuously" required="1" displayType="fraction" displayValue="8" thoughtBubbleIcon="GreenTaskGoodBubble" unitName="GoalUnitName.tasks" employeeStressOffset="-20">
+        <OnGoalInit>
+          <set entity="Nadine" attribute="levelGreenCompleted" value="0" />
+        </OnGoalInit>
+        <subgoal><![CDATA[
+          [Nadine levelGreenCompleted] >= 8
+        ]]></subgoal>
+      </goal>
+      <goal owner="Pearl" name="prototypeBlueAI" description="Prototype.Goal.21.BlueAI" evaluateAt="continuously" required="1" displayType="fraction" displayValue="1" employeeStressOffset="-20">
+        <subgoal><![CDATA[
+          [Pearl LevelBlueHelpBookHearts] >= 1
+        ]]></subgoal>
+      </goal>
+      <goal owner="Pearl" dependsOnGoal="prototypeBlueAI" description="Prototype.Goal.21.BlueReview" evaluateAt="continuously" required="1" displayType="fraction" displayValue="8" thoughtBubbleIcon="BlueTaskGoodBubble" unitName="GoalUnitName.tasks" employeeStressOffset="-20">
+        <OnGoalInit>
+          <set entity="Pearl" attribute="levelBlueCompleted" value="0" />
+        </OnGoalInit>
+        <subgoal><![CDATA[
+          [Pearl levelBlueCompleted] >= 8
+        ]]></subgoal>
+      </goal>
+      <goal owner="Luke" name="prototypePurpleAI" description="Prototype.Goal.21.PurpleAI" evaluateAt="continuously" required="1" displayType="fraction" displayValue="1" employeeStressOffset="-20">
+        <subgoal><![CDATA[
+          [Luke LevelPurpleHelpBookHearts] >= 1
+        ]]></subgoal>
+      </goal>
+      <goal owner="Luke" dependsOnGoal="prototypePurpleAI" description="Prototype.Goal.21.PurpleReview" evaluateAt="continuously" required="1" displayType="fraction" displayValue="8" thoughtBubbleIcon="GenericTaskGoodBubble" unitName="GoalUnitName.tasks" employeeStressOffset="-20">
+        <OnGoalInit>
+          <set entity="Luke" attribute="levelPurpleCompleted" value="0" />
+        </OnGoalInit>
+        <subgoal><![CDATA[
+          [Luke levelPurpleCompleted] >= 8
+        ]]></subgoal>
+      </goal>
+      <goal owner="Mahavir" description="Prototype.Goal.21.HumanFallback" evaluateAt="continuously" required="0" displayType="fraction" displayValue="12" thoughtBubbleIcon="GenericTaskGoodBubble" unitName="GoalUnitName.tasks" employeeStressOffset="-20">
+        <subgoal><![CDATA[
+          [Mahavir levelTasksCompleted] >= 12
+        ]]></subgoal>
+      </goal>
+    </LevelGoals>
+    <TaskRatios>
+      <TaskType name="orange" ratio="1" />
+      <TaskType name="green" ratio="1" />
+      <TaskType name="blue" ratio="1" />
+      <TaskType name="purple" ratio="1" />
+      <TaskSize name="small" ratio="0" />
+      <TaskSize name="medium" ratio="3" />
+      <TaskSize name="large" ratio="1" />
+    </TaskRatios>
+    <LevelLayout>
+      <StorageCloset x="105" y="3" storageCapacity="20" />
+      <Desk owner="Nadine" x="448" y="288" />
+      <Desk owner="Luke" x="156" y="288" />
+      <Desk owner="Mahavir" direction="right" x="576" y="288" />
+      <Desk owner="Ashley" direction="right" x="256" y="288" />
+      <Desk owner="Pearl" direction="right" x="576" y="128" />
+      <ToggleStation name="AC" x="10" y="288" />
+      <HeartStation name="Couch" x="342" y="128" />
+      <HeartStation name="ArcadeMachine" x="10" y="128" />
+      <HeartStation name="Smoking" x="138" y="128" />
+      <HeartStation name="WaterCooler" x="480" y="128" />
+      <OfficeManagerDesk x="512" y="400" />
+      <HeartStation name="Bathroom" x="750" y="128" />
+    </LevelLayout>
+  </LevelSettings>
+</Work>
