@@ -1,5 +1,5 @@
-# My-works
-# Hi，我是来自西南财经大学的李昔伦，未来最倾向于AI产品经理的就业。 👋
+# Seaver Lee's World
+# Hi，我是来自西南财经大学的李昔伦，你可以叫我Seaver Lee,我未来最倾向于AI产品经理的就业。 👋
 
 欢迎来到我的 GitHub 个人主页。
 
