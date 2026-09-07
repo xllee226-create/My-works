@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Work>
+  <GlobalSettings>
+    <EmployeeSettings>
+      <Employee name="Mahavir">
+        <UsableHeartStations>
+          <heartstation name="ArcadeMachine" />
+          <heartstation name="Couch" />
+          <heartstation name="WaterCooler" />
+        </UsableHeartStations>
+        <MoodifyCondition moodifier="Tara" action="atHeartStation:Couch" attribute="stress" offset="1" thoughtBubble="CouchBadBubble" />
+        <MoodifyCondition moodifier="SELF" action="talkingTo:Tara" attribute="LevelTaraTalkHearts" offset="1" />
+        <MoodifyCondition moodifier="SELF" action="talkingTo:Tara" attribute="stress" offset="-3" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:ArcadeMachine" attribute="LevelVideoGameHearts" offset="1" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:ArcadeMachine" attribute="stress" offset="-2" />
+        <attribute name="LevelVideoGameHearts" startValue="0" minValue="0" dontReset="1" />
+        <attribute name="LevelTaraTalkHearts" startValue="0" minValue="0" dontReset="1" />
+      </Employee>
+      <Employee name="Pearl">
+        <MoodifyCondition moodifier="ANY" action="usingHeartStation:Whiteboard" attribute="stress" offset="1" thoughtBubble="WhiteBoardBadBubble" />
+        <MoodifyCondition moodifier="ANY" action="usingHeartStation:Bathroom" attribute="stress" offset="1" thoughtBubble="BathroomBadBubble" />
+        <MoodifyCondition moodifier="SELF" action="talkingTo:Denise" attribute="LevelTalkHearts" offset="1" />
+        <MoodifyCondition moodifier="SELF" action="talkingTo:Denise" attribute="stress" offset="-3" />
+        <MoodifyCondition moodifier="NOTSELF" action="talkingTo:Luke" attribute="stress" offset="1" thoughtBubble="WaterCoolerBadBubble" />
+        <MoodifyCondition moodifier="NOTSELF" action="talkingTo:Tara" attribute="stress" offset="1" thoughtBubble="WaterCoolerBadBubble" />
+        <MoodifyCondition moodifier="NOTSELF" action="talkingTo:Mahavir" attribute="stress" offset="1" thoughtBubble="WaterCoolerBadBubble" />
+      </Employee>
+      <Employee name="Luke">
+        <MoodifyCondition moodifier="SELF" action="usingHeartStation:WaterCooler" attribute="LevelTeaHearts" offset="1" dontReset="1" />
+        <attribute name="LevelTeaHearts" startValue="0" minValue="0" dontReset="1" />
+      </Employee>
+    </EmployeeSettings>
+  </GlobalSettings>
+  <LevelSettings levelTime="140" deadlineDay="3" deadlineBonus="1000" underDeadlinePerDayBonus="500" playfieldWidth="800" playfieldHeight="600" startingCash="18">
+    <DayAttributes>
+    </DayAttributes>
+    <Cutscenes>
+      <cutscene filename="lvl12-intro" trigger="DayPreIntro:1" />
+      <cutscene filename="lvl12-outro" trigger="LevelOutro" />
+      <cutscene filename="cutscene-generic-denisehalfstress" cutsceneName="HalfStressDenise" trigger="DeniseHalfStress" />
+      <cutscene filename="cutscene-generic-employeedie" cutsceneName="DeadEmployee" trigger="NormalEmployeeDie" />
+      <cutscene filename="cutscene-generic-employeehalfstress" cutsceneName="HalfStressEmployee" trigger="NormalEmployeeHalfStress" />
+    </Cutscenes>
+    <TaskBurstList>
+      <burst numTasks="2" delayToNextBurstMin="8" delayToNextBurstMax="10" />
+      <burst numTasks="1" delayToNextBurstMin="8" delayToNextBurstMax="9" />
+    </TaskBurstList>
+    <AllowedPowerups>
+      <powerup name="Coffee" />
+      <powerup name="Donut" />
+      <powerup name="DietSoda" />
+      <powerup name="Brownie" />
+      <powerup name="BlueHelpBook" />
+      <powerup name="GreenHelpBook" />
+      <powerup name="OrangeHelpBook" />
+      <powerup name="Marker" />
+    </AllowedPowerups>
+    <LevelGoals>
+      <goal owner="Tara" description="GoalText.12.TaraWhiteboard" evaluateAt="continuously" required="1" displayType="meter" displayValue="200" unitName="GoalUnitName.seconds" thoughtBubbleIcon="WhiteboardGoodBubble" name="taraWhiteboard" employeeStressOffset="-20">
+        <subgoal><![CDATA[
+					[Tara LevelWhiteboardHearts] >= 200
+				]]></subgoal>
+      </goal>
+      <goal owner="Tara" description="GoalText.12.TaraMarkers" evaluateAt="continuously" required="1" displayType="fraction" displayValue="6" thoughtBubbleIcon="MarkerGoodBubble" employeeStressOffset="-20">
+        <subgoal>
+					[Tara LevelMarkerHearts] &gt;= 6
+				</subgoal>
+        <OnGoalInit>
+          <set entity="Tara" attribute="LevelMarkerHearts" value="0" />
+        </OnGoalInit>
+      </goal>
+      <goal owner="Luke" name="LukeBathroom" description="GoalText.12.LukeBathroom" evaluateAt="continuously" required="1" displayType="fraction" displayValue="5" thoughtBubbleIcon="BathroomGoodBubble" employeeStressOffset="-20">
+        <subgoal>
+					[Luke BathroomHearts] &gt;= 39
+				</subgoal>
+      </goal>
+      <goal owner="Luke" dependsOnGoal="LukeBathroom" description="GoalText.12.LukeWaterCooler" evaluateAt="continuously" required="0" displayType="meter" displayValue="60" unitName="GoalUnitName.seconds" thoughtBubbleIcon="WaterCoolerGoodBubble" employeeStressOffset="-20">
+        <subgoal>
+					[Luke LevelWaterCoolerHearts] &gt;= 60
+				</subgoal>
+        <OnGoalInit>
+          <set entity="Luke" attribute="LevelWaterCoolerHearts" value="0" />
+        </OnGoalInit>
+      </goal>
+      <goal owner="Pearl" description="GoalText.12.PearlDeniseTalk" evaluateAt="continuously" required="1" displayType="meter" displayValue="90" unitName="GoalUnitName.seconds" thoughtBubbleIcon="DeniseGoodBubble" employeeStressOffset="-20">
+        <subgoal>
+					[Pearl LevelTalkHearts] &gt;= 90
+				</subgoal>
+        <RequiredEmployees>
+          <Employee name="Denise" />
+        </RequiredEmployees>
+      </goal>
+      <goal owner="Tara" description="GoalText.12.TaraTasks" evaluateAt="continuously" required="1" displayType="fraction" displayValue="6" unitName="GoalUnitName.tasks" employeeStressOffset="-20">
+        <subgoal>
+					[Tara tasksCompleted] &gt; 6
+				</subgoal>
+      </goal>
+      <goal owner="Mahavir" description="GoalText.12.MahavirCouch" evaluateAt="continuously" required="1" displayType="meter" displayValue="140" unitName="GoalUnitName.seconds" thoughtBubbleIcon="CouchGoodBubble" name="mahavirSleep" employeeStressOffset="-20">
+        <subgoal>
+					[Mahavir LevelSleepHearts] &gt;=140
+				</subgoal>
+      </goal>
+      <goal owner="Mahavir" description="GoalText.12.MahavirArcade" evaluateAt="continuously" required="0" displayType="meter" displayValue="70" unitName="GoalUnitName.seconds" thoughtBubbleIcon="ArcadeMachineGoodBubble" dependsOnGoal="mahavirSleep" employeeStressOffset="-20">
+        <subgoal>
+					[Mahavir LevelVideoGameHearts] &gt;= 70
+				</subgoal>
+        <OnGoalInit>
+          <set entity="Mahavir" attribute="LevelVideoGameHearts" value="0" />
+        </OnGoalInit>
+      </goal>
+    </LevelGoals>
+    <TaskRatios>
+      <TaskType name="orange" ratio="1" />
+      <TaskType name="green" ratio="1" />
+      <TaskType name="blue" ratio="1" />
+      <TaskType name="purple" ratio="1" />
+      <TaskSize name="small" ratio="0" />
+      <TaskSize name="medium" ratio="1" />
+      <TaskSize name="large" ratio="0" />
+    </TaskRatios>
+    <LevelLayout>
+      <StorageCloset x="105" y="3" storageCapacity="6" />
+      <Desk owner="Pearl" x="448" y="288" />
+      <Desk owner="Mahavir" x="156" y="288" />
+      <Desk owner="Tara" direction="right" x="576" y="288" />
+      <Desk owner="Luke" direction="right" x="576" y="128" />
+      <ToggleStation name="AC" x="10" y="288" />
+      <HeartStation name="Couch" x="278" y="160" />
+      <HeartStation name="ArcadeMachine" x="10" y="128" />
+      <HeartStation name="Kitchen" x="140" y="128" />
+      <HeartStation name="WaterCooler" x="80" y="460" />
+      <HeartStation name="Whiteboard" x="440" y="128" />
+      <OfficeManagerDesk x="512" y="400" />
+      <HeartStation name="Bathroom" x="750" y="128" />
+    </LevelLayout>
+  </LevelSettings>
+</Work>
