@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cool C.A.I. - Playable Prototype</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="app">
+    <section id="profile-screen" class="screen profile-screen">
+      <div class="brand-lockup">
+        <span class="eyebrow">PRIVATE PLAYABLE PROTOTYPE</span>
+        <h1>Cool C.A.I.</h1>
+        <p>They hired you to understand workplace pressure. Then they made delivery your problem.</p>
+      </div>
+
+      <div class="selection-panel panel">
+        <div class="selection-copy">
+          <span class="step-label">NEW PROFILE / STEP 1 OF 1</span>
+          <h2>Choose your Project Manager</h2>
+          <p>Denise and Steven have identical abilities and authority. This choice is locked to the profile until it is deleted.</p>
+        </div>
+        <div class="character-grid">
+          <button class="character-card" data-character="Denise" type="button">
+            <span class="character-art denise-art">
+              <img src="assets/reimagined/denise.png" alt="Denise">
+            </span>
+            <span class="character-content">
+              <strong>Denise</strong>
+              <span>Workplace psychology / project delivery</span>
+              <small>Paris history and Mahavir story scenes enabled.</small>
+            </span>
+            <span class="selection-mark">SELECT</span>
+          </button>
+          <button class="character-card" data-character="Steven" type="button">
+            <span class="character-art steven-art">
+              <img src="assets/reimagined/steven.png" alt="Steven">
+            </span>
+            <span class="character-content">
+              <strong>Steven</strong>
+              <span>Organizational health / project delivery</span>
+              <small>Parallel main story; no replacement romance subplot.</small>
+            </span>
+            <span class="selection-mark">SELECT</span>
+          </button>
+        </div>
+        <div class="selection-actions">
+          <p id="profile-warning">Select a character to continue.</p>
+          <button id="confirm-character" class="primary-button" type="button" disabled>Confirm profile</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="level-screen" class="screen level-screen hidden">
+      <header class="menu-header">
+        <div>
+          <span class="eyebrow">COOL C.A.I. / VERTICAL SLICE</span>
+          <h1>Prototype Episodes</h1>
+        </div>
+        <div class="profile-chip">
+          <img id="menu-avatar" alt="Selected project manager">
+          <div><small>PROJECT MANAGER</small><strong id="menu-character"></strong></div>
+          <button id="delete-profile" class="text-button danger" type="button">Delete profile</button>
+        </div>
+      </header>
+      <div class="level-intro panel">
+        <p>These samples keep their real episode numbers. Episodes 1, 11 and 22 are directly selectable for testing; they are not remapped to Episodes 1-3.</p>
+      </div>
+      <div id="level-cards" class="level-grid"></div>
+      <footer class="copyright-note">Private mechanics prototype. Displayed character portraits are originalized prototype reimaginings; legacy files are not loaded.</footer>
+    </section>
+
+    <section id="game-screen" class="screen game-screen hidden">
+      <header class="game-header">
+        <div class="episode-identity">
+          <button id="back-to-levels" class="icon-button" type="button" aria-label="Back to episode select">&larr;</button>
+          <div><small id="game-episode"></small><h1 id="game-title"></h1></div>
+        </div>
+        <div class="clock-block">
+          <span id="day-label">DAY 1</span>
+          <strong id="clock">09:00</strong>
+          <small id="phase-label">NORMAL HOURS</small>
+        </div>
+        <div class="header-stats">
+          <div><small>BUDGET</small><strong id="cash">$0</strong></div>
+          <div class="pm-status">
+            <img id="game-avatar" alt="Project manager">
+            <div><small id="pm-name"></small><strong>PM STRESS <span id="pm-stress-text">0%</span></strong></div>
+            <div class="stress-track"><span id="pm-stress-bar"></span></div>
+          </div>
+          <div class="time-controls">
+            <button id="pause-button" type="button">Pause</button>
+            <button class="speed-button active" data-speed="1" type="button">1x</button>
+            <button class="speed-button" data-speed="2" type="button">2x</button>
+            <button class="speed-button" data-speed="4" type="button">4x</button>
+          </div>
+        </div>
+      </header>
+
+      <div class="game-layout">
+        <aside class="left-rail">
+          <nav class="location-nav" aria-label="Building locations">
+            <button class="location-button active" data-location="office" type="button"><span>01</span>Team Office</button>
+            <button class="location-button" data-location="meeting" type="button"><span>02</span>Meeting Floor</button>
+            <button class="location-button disabled" type="button"><span>03</span>Executive Floor</button>
+            <button class="location-button disabled" type="button"><span>04</span>General Affairs</button>
+            <button class="location-button disabled" type="button"><span>05</span>OfficeTown Store</button>
+          </nav>
+          <section class="goal-panel panel-dark">
+            <div class="rail-title"><span>OBJECTIVES</span><small id="goal-summary"></small></div>
+            <div id="goals" class="goal-list"></div>
+          </section>
+          <section id="ai-panel" class="ai-panel panel-dark hidden">
+            <div class="rail-title"><span>MANDATORY AI</span><small>REVIEW STILL REQUIRED</small></div>
+            <div id="ai-controls"></div>
+          </section>
+        </aside>
+
+        <section id="world" class="world">
+          <div id="office-panel" class="office-panel">
+            <div class="office-heading">
+              <div><small>TEAM OFFICE</small><strong id="office-status">Four live departmental queues</strong></div>
+              <span id="remote-label" class="remote-label hidden">REMOTE OFFICE / INTERACTIVE</span>
+            </div>
+            <div id="window-view" class="window-view" aria-label="Dynamic office window showing time of day">
+              <span class="sun"></span><span class="city city-back"></span><span class="city city-front"></span>
+              <div class="window-time"><small>WINDOW LIGHT</small><strong id="window-time-label">MORNING</strong></div>
+            </div>
+            <div id="queues" class="queue-grid"></div>
+            <div class="employee-section">
+              <div class="section-heading"><span>TEAM</span><small>Assign from any queue. Rest uses shared facilities.</small></div>
+              <div id="employees" class="employee-grid"></div>
+            </div>
+          </div>
+
+          <div id="meeting-panel" class="meeting-panel hidden">
+            <div class="meeting-room-art">
+              <div class="screen-wall"><small>COOL C.A.I.</small><strong id="meeting-screen-title">ALIGNMENT</strong></div>
+              <div class="meeting-table"><span></span><span></span><span></span><span></span></div>
+            </div>
+            <div class="meeting-copy">
+              <span class="eyebrow">MEETING FLOOR</span>
+              <h2 id="active-meeting-title">Meeting in progress</h2>
+              <p id="meeting-rule-copy">The room is locked until the timer ends. Remote office controls remain available.</p>
+              <div class="meeting-timer"><small>TIME REMAINING</small><strong id="meeting-remaining">00:00</strong></div>
+              <div id="meeting-attendees" class="attendee-list"></div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="right-rail">
+          <section class="meeting-control panel">
+            <div class="rail-title"><span>MEETINGS</span><small id="meeting-count">0 / 3 TODAY</small></div>
+            <div id="meeting-options"></div>
+          </section>
+          <section class="event-log panel">
+            <div class="rail-title"><span>PROJECT FEED</span><small>LIVE</small></div>
+            <div id="log-entries" class="log-entries" aria-live="polite"></div>
+          </section>
+          <section class="controls-help panel">
+            <strong>How to play</strong>
+            <p>Choose an employee on a task card, then assign it. Employees work automatically. Rest them before stress reaches 100%.</p>
+          </section>
+          <button id="finish-project" class="primary-button finish-button" type="button" disabled>Required goals incomplete</button>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card panel">
+      <span id="modal-eyebrow" class="eyebrow"></span>
+      <h2 id="modal-title"></h2>
+      <div id="modal-body"></div>
+      <div id="modal-actions" class="modal-actions"></div>
+    </div>
+  </div>
+
+  <script src="levels.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
