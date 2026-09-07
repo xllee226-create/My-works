@@ -1,0 +1,890 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Work>
+  <GlobalSettings defaultProximity="100" screenTransitionStyle="auto" screenTransitionSpeed="0.4" autoTransitionAreaSize="16" employeePanicStressThreshold="0.8" showEmployeeStressBar="1" taskSpeedUpDelayMultiplier="0.75" employeeTaskStackMaxSize="5" employeePowerupStackMaxSize="1" firstTaskAppearanceTimeMin="1" firstTaskAppearanceTimeMax="2" taskBurstDelayMin="0.1" taskBurstDelayMax="0.2" powerupStorageCapacity="20" officeManagerDeskTaskCapacity="6" employeeStressedHeartStationBreakoutTime="1" employeeStressedHeartStationBreakoutInterval="1" employeePanickedHeartStationBreakoutTime="99999" employeePanickedHeartStationBreakoutInterval="1">
+    <HeartStations>
+      <heartstation name="ArcadeMachine" maxEmployees="1" />
+      <heartstation name="Couch" maxEmployees="1" />
+      <heartstation name="Kitchen" maxEmployees="1" />
+      <heartstation name="Smoking" maxEmployees="2" />
+      <heartstation name="Treadmill" maxEmployees="1" />
+      <heartstation name="WaterCooler" maxEmployees="2" enablesTalking="true" />
+      <heartstation name="Whiteboard" maxEmployees="1" acceptsNormalEmployees="true" />
+      <heartstation name="Bathroom" maxEmployees="1" kickEmployeeOutAfter="8" canSelectUsingEmployee="false" acceptsNormalEmployees="true" />
+    </HeartStations>
+    <ToggleStations>
+      <togglestation name="AC" maxEmployees="1" />
+      <togglestation name="Radio" maxEmployees="1" />
+    </ToggleStations>
+    <Powerups>
+      <powerup name="Coffee" displayName="Coffee" cost="3" consumptionDuration="1" description="increases employee efficiency" useDefaultConsumptionAnimation="true">
+        <attribute name="CoffeeHearts" offset="1" effectDuration="-1" />
+        <attribute name="LevelCoffeeHearts" offset="1" effectDuration="-1" />
+        <attribute name="WorkEfficiency" offset="1" effectDuration="15" stackable="false" />
+        
+        <ValidEmployees>
+			<employee name="Mahavir"/>
+			<employee name="Winston"/>
+			<employee name="Tara"/>
+			<employee name="Timothy"/>
+			<employee name="Pearl"/>
+			<employee name="Luke"/>
+			<employee name="Duncan"/>
+			<employee name="Ashley"/>
+			<employee name="Nadine"/>
+			<employee name="Brooke"/>
+        </ValidEmployees>
+      </powerup>
+      <!-- Expresso has become Cafficcino
+      <powerup name="Expresso" displayName="Expresso" cost="6" consumptionDuration="1" description="A super cup of coffee; greatly increases employee efficiency">
+        <attribute name="ExpressoHearts" offset="1" effectDuration="-1" />
+        <attribute name="LevelExpressoHearts" offset="1" effectDuration="-1" />
+        <attribute name="WorkEfficiency" offset="2" effectDuration="20" stackable="false" />
+      </powerup>
+      -->
+      <powerup name="Cafficcino" displayName="Choco-Cafficcino" cost="6" consumptionDuration="1" description="A super cup of coffee; greatly increases employee efficiency" useDefaultConsumptionAnimation="true">
+        <attribute name="CafficcinoHearts" offset="1" effectDuration="-1" />
+        <attribute name="LevelCafficcinoHearts" offset="1" effectDuration="-1" />
+        <attribute name="WorkEfficiency" offset="2" effectDuration="15" stackable="false" />
+        
+        <ValidEmployees>
+			<employee name="Mahavir"/>
+			<employee name="Winston"/>
+			<employee name="Tara"/>
+			<employee name="Timothy"/>
+			<employee name="Pearl"/>
+			<employee name="Luke"/>
+			<employee name="Duncan"/>
+			<employee name="Ashley"/>
+			<employee name="Nadine"/>
+			<employee name="Brooke"/>
+        </ValidEmployees>
+      </powerup>
+      <powerup name="BlueHelpBook" displayName="Engineering AI" cost="8" consumptionDuration="6" description="AI license that improves Engineering proficiency; generated work still needs review" useDefaultConsumptionAnimation="false">
+        <attribute name="BlueHelpBookHearts" offset="1" effectDuration="-1" />
+        <attribute name="LevelBlueHelpBookHearts" offset="1" effectDuration="-1" />
+        <attribute name="BlueProficiency" offset="1" effectDuration="-1" stackable="true" />
+        <consumeAnimation facing="left" animName="blueBook.left" />
+        <consumeAnimation facing="right" animName="blueBook.right" />
+        
+        <ValidEmployees>
+			<employee name="Mahavir"/>
+			<employee name="Winston"/>
+			<employee name="Tara"/>
+			<employee name="Timothy"/>
+			<employee name="Pearl"/>
+			<employee name="Luke"/>
+			<employee name="Duncan"/>
+			<employee name="Ashley"/>
+			<employee name="Nadine"/>
+			<employee name="Brooke"/>
+        </ValidEmployees>
+      </powerup>
+      <powerup name="GreenHelpBook" displayName="Data AI" cost="8" consumptionDuration="6" description="AI license that improves Data &amp; Strategy proficiency; generated work still needs review" useDefaultConsumptionAnimation="false">
+        <attribute name="GreenHelpBookHearts" offset="1" effectDuration="-1" />
+        <attribute name="LevelGreenHelpBookHearts" offset="1" effectDuration="-1" />
+        <attribute name="GreenProficiency" offset="1" effectDuration="-1" stackable="true" />
+        <consumeAnimation facing="left" animName="greenBook.left" />
+        <consumeAnimation facing="right" animName="greenBook.right" />
+        
+        <ValidEmployees>
+			<employee name="Mahavir"/>
+			<employee name="Winston"/>
+			<employee name="Tara"/>
+			<employee name="Timothy"/>
+			<employee name="Pearl"/>
+			<employee name="Luke"/>
+			<employee name="Duncan"/>
+			<employee name="Ashley"/>
+			<employee name="Nadine"/>
+			<employee name="Brooke"/>
+        </ValidEmployees>
+      </powerup>
+      <powerup name="OrangeHelpBook" displayName="Product AI" cost="8" consumptionDuration="6" description="AI license that improves Product &amp; Design proficiency; generated work still needs review" useDefaultConsumptionAnimation="false">
+        <attribute name="OrangeHelpBookHearts" offset="1" effectDuration="-1" />
+        <attribute name="LevelOrangeHelpBookHearts" offset="1" effectDuration="-1" />
+        <attribute name="OrangeProficiency" offset="1" effectDuration="-1" stackable="true" />
+        <consumeAnimation facing="left" animName="orangeBook.left" />
+        <consumeAnimation facing="right" animName="orangeBook.right" />
+        
+        <ValidEmployees>
+			<employee name="Mahavir"/>
+			<employee name="Winston"/>
+			<employee name="Tara"/>
+			<employee name="Timothy"/>
+			<employee name="Pearl"/>
+			<employee name="Luke"/>
+			<employee name="Duncan"/>
+			<employee name="Ashley"/>
+			<employee name="Nadine"/>
+			<employee name="Brooke"/>
+        </ValidEmployees>
+      </powerup>
+      <powerup name="PurpleHelpBook" displayName="Growth AI" cost="8" consumptionDuration="6" description="AI license that improves Growth &amp; Operations proficiency; generated work still needs review" useDefaultConsumptionAnimation="false">
+        <attribute name="PurpleHelpBookHearts" offset="1" effectDuration="-1" />
+        <attribute name="LevelPurpleHelpBookHearts" offset="1" effectDuration="-1" />
+        <attribute name="PurpleProficiency" offset="1" effectDuration="-1" stackable="true" />
+        <consumeAnimation facing="left" animName="purpleBook.left" />
+        <consumeAnimation facing="right" animName="purpleBook.right" />
+        
+        <ValidEmployees>
+			<employee name="Mahavir"/>
+			<employee name="Winston"/>
+			<employee name="Tara"/>
+			<employee name="Timothy"/>
+			<employee name="Pearl"/>
+			<employee name="Luke"/>
+			<employee name="Duncan"/>
+			<employee name="Ashley"/>
+			<employee name="Nadine"/>
+			<employee name="Brooke"/>
+        </ValidEmployees>
+      </powerup>
+      <!-- Cafficcino has become DietSoda
+      <powerup name="Cafficcino" displayName="Choco-Cafficcino" cost="8" consumptionDuration="1" description="Increases Denise's walking speed">
+        <attribute name="CafficcinoHearts" offset="1" effectDuration="-1" />
+        <attribute name="LevelCafficcinoHearts" offset="1" effectDuration="-1" />
+        <attribute name="walkSpeed" offset="10" effectDuration="20" stackable="false" />
+      </powerup>
+      -->
+      <powerup name="DietSoda" displayName="DietSoda" cost="8" consumptionDuration="1" description="Increases Denise's walking speed" useDefaultConsumptionAnimation="true">
+        <attribute name="DietSodaHearts" offset="1" effectDuration="-1" />
+        <attribute name="LevelDietSodaHearts" offset="1" effectDuration="-1" />
+        <attribute name="walkSpeed" offset="10" effectDuration="20" stackable="false" />
+        
+        <ValidEmployees>
+			<employee name="Denise"/>
+        </ValidEmployees>
+      </powerup>
+      <!-- DietSoda has become Brownie
+      <powerup name="DietSoda" displayName="DietSoda" cost="8" consumptionDuration="1" description="Treat that reduces Denise's stress.">
+        <attribute name="DietSodaHearts" offset="1" effectDuration="-1" />
+        <attribute name="LevelDietSodaHearts" offset="1" effectDuration="-1" />
+        <attribute name="stress" offset="-40" effectDuration="-1" />
+      </powerup>
+      -->
+      <powerup name="Brownie" displayName="Brownie" cost="12" consumptionDuration="1" description="Treat that reduces Denise's stress." useDefaultConsumptionAnimation="true">
+        <attribute name="BrownieHearts" offset="1" effectDuration="-1" />
+        <attribute name="LevelBrownieHearts" offset="1" effectDuration="-1" />
+        <attribute name="stress" offset="-30" effectDuration="-1" />
+        
+        <ValidEmployees>
+			<employee name="Denise"/>
+        </ValidEmployees>
+      </powerup>
+      <!-- EnergyDrink is no longer in the game
+      <powerup name="EnergyDrink" displayName="EnergyDrink" cost="20" consumptionDuration="1" description="Treat that greatly decreases Denise's stress">
+        <attribute name="EnergyDrinkHearts" offset="1" effectDuration="-1" />
+        <attribute name="LevelEnergyDrinkHearts" offset="1" effectDuration="-1" />
+        <attribute name="stress" offset="-40" effectDuration="-1" />
+      </powerup>
+      -->
+      <powerup name="Donut" displayName="Donut" cost="3" consumptionDuration="1.5" description="decreases employee stress" useDefaultConsumptionAnimation="true">
+        <attribute name="DonutHearts" offset="1" effectDuration="-1" />
+        <attribute name="LevelDonutHearts" offset="1" effectDuration="-1" />
+        <attribute name="stress" offset="-40" effectDuration="-1" />
+        
+        <ValidEmployees>
+			<employee name="Mahavir"/>
+			<employee name="Winston"/>
+			<employee name="Tara"/>
+			<employee name="Timothy"/>
+			<employee name="Pearl"/>
+			<employee name="Luke"/>
+			<employee name="Duncan"/>
+			<employee name="Ashley"/>
+			<employee name="Nadine"/>
+			<employee name="Brooke"/>
+        </ValidEmployees>
+      </powerup>
+      <!-- SuperDonut has become Cinnabun
+      <powerup name="SuperDonut" displayName="SuperDonut" cost="10" consumptionDuration="1" description="A super-sized donut; greatly decreases employee stress">
+        <attribute name="SuperDonutHearts" offset="1" effectDuration="-1" />
+        <attribute name="LevelSuperDonutHearts" offset="1" effectDuration="-1" />
+        <attribute name="stress" offset="-80" effectDuration="-1" />
+      </powerup>
+      -->
+      <powerup name="Cinnabun" displayName="Cinnabun" cost="10" consumptionDuration="1" description="A super-sized donut; greatly decreases employee stress" useDefaultConsumptionAnimation="true">
+        <attribute name="CinnabunHearts" offset="1" effectDuration="-1" />
+        <attribute name="LevelCinnabunHearts" offset="1" effectDuration="-1" />
+        <attribute name="stress" offset="-80" effectDuration="-1" />
+        
+        <ValidEmployees>
+			<employee name="Mahavir"/>
+			<employee name="Winston"/>
+			<employee name="Tara"/>
+			<employee name="Timothy"/>
+			<employee name="Pearl"/>
+			<employee name="Luke"/>
+			<employee name="Duncan"/>
+			<employee name="Ashley"/>
+			<employee name="Nadine"/>
+			<employee name="Brooke"/>
+        </ValidEmployees>
+      </powerup>
+      <powerup name="Marker" displayName="Marker" cost="15" consumptionDuration="1" description="A simple office supply that Tara likes" useDefaultConsumptionAnimation="true">
+        <attribute name="MarkerHearts" offset="1" effectDuration="-1" />
+        <attribute name="LevelMarkerHearts" offset="1" effectDuration="-1" />
+        <attribute name="stress" offset="-90" effectDuration="-1" />
+        
+        <ValidEmployees>
+			<employee name="Tara"/>
+			<employee name="Duncan"/>
+        </ValidEmployees>
+      </powerup>
+      <powerup name="Stapler" displayName="Classique Stapler" cost="35" consumptionDuration="1" description="A deluxe red stapler that Timothy has always wanted" useDefaultConsumptionAnimation="true">
+        <attribute name="StaplerHearts" offset="1" effectDuration="-1" />
+        <attribute name="LevelStaplerHearts" offset="1" effectDuration="-1" />
+        <attribute name="stress" offset="-100" effectDuration="-1" />
+        
+        <ValidEmployees>
+			<employee name="Timothy"/>
+			<employee name="Duncan"/>
+        </ValidEmployees>
+      </powerup>
+      <!-- Brownie has become HerbalTea
+      <powerup name="Brownie" displayName="Brownie" cost="15" consumptionDuration="1" description="PLACEHOLDER">
+        <attribute name="BrownieHearts" offset="1" effectDuration="-1" />
+        <attribute name="LevelBrownieHearts" offset="1" effectDuration="-1" />
+      </powerup>
+      -->
+      <powerup name="HerbalTea" displayName="Hippie Herbal Tea" cost="15" consumptionDuration="1" description="PLACEHOLDER" useDefaultConsumptionAnimation="true">
+        <attribute name="HerbalTeaHearts" offset="1" effectDuration="-1" />
+        <attribute name="LevelHerbalTeaHearts" offset="1" effectDuration="-1" />
+        <attribute name="stress" offset="-90" effectDuration="-1" />
+        
+        <ValidEmployees>
+			<employee name="Mahavir"/>
+			<employee name="Luke"/>
+        </ValidEmployees>
+      </powerup>
+    </Powerups>
+    <GlobalMoodifyConditions>
+      <MoodifyCondition moodifier="SELF" action="NOTHING" attribute="stress" offset="-1" />
+      <MoodifyCondition moodifier="SELF" action="atHeartStation:WaterCooler" attribute="stress" offset="-2" />
+      <MoodifyCondition moodifier="SELF" action="atHeartStation:WaterCooler" attribute="WCHearts" offset="1" />
+    </GlobalMoodifyConditions>
+    <GlobalEmployeeAttributes>
+      <attribute name="levelTasksCompleted" startValue="0" minValue="0" dontReset="1" />
+      <attribute name="levelOrangeCompleted" startValue="0" minValue="0" dontReset="1" />
+      <attribute name="levelGreenCompleted" startValue="0" minValue="0" dontReset="1" />
+      <attribute name="levelBlueCompleted" startValue="0" minValue="0" dontReset="1" />
+      <attribute name="levelPurpleCompleted" startValue="0" minValue="0" dontReset="1" />
+      <attribute name="LevelExpressoHearts" startValue="0" minValue="0" dontReset="1" />
+      <attribute name="LevelCoffeeHearts" startValue="0" minValue="0" dontReset="1" />
+      <attribute name="LevelBlueHelpBookHearts" startValue="0" minValue="0" dontReset="1" />
+      <attribute name="LevelGreenHelpBookHearts" startValue="0" minValue="0" dontReset="1" />
+      <attribute name="LevelOrangeHelpBookHearts" startValue="0" minValue="0" dontReset="1" />
+      <attribute name="LevelPurpleHelpBookHearts" startValue="0" minValue="0" dontReset="1" />
+      <attribute name="LevelYellowHelpBookHearts" startValue="0" minValue="0" dontReset="1" />
+      <attribute name="LevelDietSodaHearts" startValue="0" minValue="0" dontReset="1" />
+      <attribute name="LevelDonutHearts" startValue="0" minValue="0" dontReset="1" />
+      <attribute name="LevelEnergyDrinkHearts" startValue="0" minValue="0" dontReset="1" />
+      <attribute name="LevelCinnabunHearts" startValue="0" minValue="0" dontReset="1" />
+
+      <attribute name="LevelSuperDonutHearts" startValue="0" minValue="0" dontReset="1" />
+      <attribute name="LevelMarkerHearts" startValue="0" minValue="0" dontReset="1" />
+      <attribute name="LevelStaplerHearts" startValue="0" minValue="0" dontReset="1" />
+      <attribute name="LevelCafficcinoHearts" startValue="0" minValue="0" dontReset="1" />
+      <attribute name="LevelBrownieHearts" startValue="0" minValue="0" dontReset="1" />
+      <attribute name="LevelHerbalTeaHearts" startValue="0" minValue="0" dontReset="1" />
+      <attribute name="OrangeProficiency" minValue="0" maxValue="3" />
+      <attribute name="GreenProficiency" minValue="0" maxValue="3" />
+      <attribute name="BlueProficiency" minValue="0" maxValue="3" />
+      <attribute name="PurpleProficiency" minValue="0" maxValue="3" />
+    </GlobalEmployeeAttributes>
+    <EmployeeSettings>
+      <Employee name="Winston" maxStressPerSecond="15" stressStatePointsPerSecondThreshold="5" proficiency1="blue up" proficiency2="orange down" proficiency3="green neutral" proficiency4="purple neutral">
+        <!-- the full list of heart stations -->
+        <!--<UsableHeartStations>
+			<heartstation name="ArcadeMachine"/>
+			<heartstation name="Couch"/>
+			<heartstation name="Kitchen"/>
+			<heartstation name="Smoking"/>
+			<heartstation name="Treadmill"/>
+			<heartstation name="WaterCooler"/>
+			<heartstation name="Whiteboard"/>
+			<heartstation name="Bathroom"/>
+          </UsableHeartStations>-->
+        <!-- Winston can use -->
+        <UsableHeartStations>
+          <heartstation name="ArcadeMachine" />
+          <heartstation name="WaterCooler" />
+        </UsableHeartStations>
+        <TaskProficiencyLevels taskType="orange" initialLevel="0">
+          <!-- 0 == start "down" -->
+          <workSpeed value="5" />
+          <workSpeed value="8" />
+          <workSpeed value="10" />
+          <workSpeed value="10" />
+        </TaskProficiencyLevels>
+        <TaskProficiencyLevels taskType="green" initialLevel="1">
+          <!-- 1 == start "neutral" -->
+          <workSpeed value="5" />
+          <workSpeed value="8" />
+          <workSpeed value="10" />
+          <workSpeed value="12" />
+        </TaskProficiencyLevels>
+        <TaskProficiencyLevels taskType="blue" initialLevel="2">
+          <!-- 2 == start "up" -->
+          <workSpeed value="8" />
+          <workSpeed value="10" />
+          <workSpeed value="13" />
+          <workSpeed value="15" />
+        </TaskProficiencyLevels>
+        <TaskProficiencyLevels taskType="purple" initialLevel="1">
+          <!-- 1 == start "neutral" -->
+          <workSpeed value="8" />
+          <workSpeed value="10" />
+          <workSpeed value="13" />
+          <workSpeed value="15" />
+        </TaskProficiencyLevels>
+        <Description text="The office tech guy. Good at technical tasks, and bad at visual ones. Plays video games to destress." />
+        <MoodifyCondition moodifier="SELF" action="workingOn:orange" attribute="stress" offset="6" thoughtBubble="OrangeTaskBadBubble" />
+        <MoodifyCondition moodifier="SELF" action="workingOn:green" attribute="stress" offset="4" name="WinstonGreenTaskMoodifier" />
+        <MoodifyCondition moodifier="SELF" action="workingOn:blue" attribute="stress" offset="3" name="WinstonBlueTaskMoodifier" />
+        <MoodifyCondition moodifier="SELF" action="workingOn:purple" attribute="stress" offset="4" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:ArcadeMachine" attribute="VideoGameHearts" offset="1" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:ArcadeMachine" attribute="LevelVideoGameHearts" offset="1" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:ArcadeMachine" attribute="stress" offset="-3" />
+        <MoodifyCondition moodifier="NOTSELF" action="usingHeartStation:ArcadeMachine" attribute="stress" offset="1" thoughtBubble="ArcadeMachineBadBubble" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:Smoking" attribute="SmokingHearts" offset="1" />
+        <MoodifyCondition moodifier="SELF" action="blueHelpBook" attribute="stress" offset="4" />
+        <MoodifyCondition moodifier="AC" action="isOn" attribute="stress" offset="-2" thoughtBubble="ACGoodBubble" />
+        <MoodifyCondition moodifier="Radio" action="isOn" attribute="stress" offset="-2" thoughtBubble="RadioGoodBubble" />
+        <attribute name="stress" startValue="0" minValue="0" maxValue="100" />
+        <attribute name="hearts" startValue="0" minValue="0" maxValue="100" />
+        <attribute name="walkSpeed" startValue="5" minValue="0" />
+        <!--<attribute name="orangeSpeed" startValue="5" minValue="0"/>
+            <attribute name="greenSpeed" startValue="8" minValue="0"/>
+            <attribute name="blueSpeed" startValue="13" minValue="0"/>
+            <attribute name="purpleSpeed" startValue="10" minValue="0"/>-->
+        <!-- replaced by TaskProficiencyLevels -->
+        <attribute name="LevelVideoGameHearts" startValue="0" minValue="0" dontReset="1" />
+        <attribute name="VideoGameHearts" startValue="0" minValue="0" />
+        <attribute name="SmokingHearts" startValue="0" minValue="0" />
+      </Employee>
+      <Employee name="Mahavir" maxStressPerSecond="15" stressStatePointsPerSecondThreshold="5" proficiency1="green neutral" proficiency2="blue neutral" proficiency3="orange neutral" proficiency4="purple neutral">
+        <!-- Mahavir can use -->
+        <!-- in levels 11 and 12 Mahavir will be able to use the arcade -->
+        <UsableHeartStations>
+          <heartstation name="Couch" />
+          <heartstation name="WaterCooler" />
+        </UsableHeartStations>
+        <TaskProficiencyLevels taskType="orange" initialLevel="1">
+          <workSpeed value="3" />
+          <workSpeed value="5" />
+          <workSpeed value="7" />
+          <workSpeed value="9" />
+        </TaskProficiencyLevels>
+        <TaskProficiencyLevels taskType="green" initialLevel="1">
+          <workSpeed value="3" />
+          <workSpeed value="5" />
+          <workSpeed value="7" />
+          <workSpeed value="9" />
+        </TaskProficiencyLevels>
+        <TaskProficiencyLevels taskType="blue" initialLevel="1">
+          <workSpeed value="3" />
+          <workSpeed value="5" />
+          <workSpeed value="7" />
+          <workSpeed value="9" />
+        </TaskProficiencyLevels>
+        <TaskProficiencyLevels taskType="purple" initialLevel="1">
+          <workSpeed value="3" />
+          <workSpeed value="5" />
+          <workSpeed value="7" />
+          <workSpeed value="9" />
+        </TaskProficiencyLevels>
+        <Description text="Slow worker, but very difficult to stress out. Enjoys sleeping on the sofa." />
+        <MoodifyCondition moodifier="SELF" action="workingOn:orange" attribute="stress" offset="2" />
+        <MoodifyCondition moodifier="SELF" action="workingOn:green" attribute="stress" offset="2" />
+        <MoodifyCondition moodifier="SELF" action="workingOn:blue" attribute="stress" offset="2" />
+        <MoodifyCondition moodifier="SELF" action="workingOn:purple" attribute="stress" offset="4" thoughtBubble="PurpleTaskBadBubble" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:couch" attribute="hearts" offset="1" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:couch" attribute="LevelSleepHearts" offset="1" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:couch" attribute="stress" offset="-3" />
+        <MoodifyCondition moodifier="NOTSELF" action="usingHeartStation:couch" attribute="stress" offset="1" thoughtBubble="CouchBadBubble" />
+        <MoodifyCondition moodifier="Timothy" action="atHeartStation:kitchen" attribute="stress" offset="1" thoughtBubble="KitchenBadBubble" />
+        <attribute name="stress" startValue="25" minValue="0" maxValue="100" />
+        <attribute name="hearts" startValue="0" minValue="0" maxValue="100" />
+        <attribute name="walkSpeed" startValue="5" minValue="0" />
+        <!--<attribute name="orangeSpeed" startValue="5" minValue="0"/>
+            <attribute name="greenSpeed" startValue="5" minValue="0"/>
+            <attribute name="blueSpeed" startValue="5" minValue="0"/>
+            <attribute name="purpleSpeed" startValue="5" minValue="0"/> -->
+        <attribute name="LevelSleepHearts" startValue="0" minValue="0" dontReset="1" />
+      </Employee>
+      <Employee name="Tara" maxStressPerSecond="15" stressStatePointsPerSecondThreshold="5" proficiency1="orange up" proficiency2="green down" proficiency3="blue down" proficiency4="purple neutral">
+        <!-- Tara can use -->
+        <UsableHeartStations>
+          <!-- only sometimes will she be allowed to use a couch. It will be specified in a level 11 xml -->
+          <!-- <heartstation name="Couch"/> -->
+          <heartstation name="WaterCooler" />
+          <heartstation name="Whiteboard" />
+        </UsableHeartStations>
+        <TaskProficiencyLevels taskType="orange" initialLevel="2">
+          <workSpeed value="8" />
+          <workSpeed value="10" />
+          <workSpeed value="13" />
+          <workSpeed value="13" />
+        </TaskProficiencyLevels>
+        <TaskProficiencyLevels taskType="green" initialLevel="0">
+          <workSpeed value="6" />
+          <workSpeed value="7" />
+          <workSpeed value="9" />
+          <workSpeed value="11" />
+        </TaskProficiencyLevels>
+        <TaskProficiencyLevels taskType="blue" initialLevel="0">
+          <workSpeed value="6" />
+          <workSpeed value="7" />
+          <workSpeed value="9" />
+          <workSpeed value="11" />
+        </TaskProficiencyLevels>
+        <TaskProficiencyLevels taskType="purple" initialLevel="1">
+          <workSpeed value="5" />
+          <workSpeed value="7" />
+          <workSpeed value="9" />
+          <workSpeed value="11" />
+        </TaskProficiencyLevels>
+        <Description text="Shy artist type. Very good at visual tasks and nothing else. Likes being left alone to draw." />
+        <MoodifyCondition moodifier="SELF" action="workingOn:orange" attribute="stress" offset="3" />
+        <MoodifyCondition moodifier="SELF" action="workingOn:green" attribute="stress" offset="5" thoughtBubble="GreenTaskBadBubble" />
+        <MoodifyCondition moodifier="SELF" action="workingOn:blue" attribute="stress" offset="5" thoughtBubble="BlueTaskBadBubble" />
+        <MoodifyCondition moodifier="SELF" action="workingOn:purple" attribute="stress" offset="7" thoughtBubble="PurpleTaskBadBubble" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:Whiteboard" attribute="WhiteboardHearts" offset="1" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:Whiteboard" attribute="LevelWhiteboardHearts" offset="1" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:Whiteboard" attribute="stress" offset="-4" />
+        <MoodifyCondition moodifier="SELF" action="talkingTo:Mahavir" attribute="stress" offset="5" thoughtBubble="MahavirBadBubble" />
+        <MoodifyCondition moodifier="SELF" action="talkingTo:Timothy" attribute="stress" offset="3" />
+        <MoodifyCondition moodifier="Mahavir" action="atHeartStation:couch" attribute="stress" offset="1" thoughtBubble="CouchBadBubble" />
+        <MoodifyCondition moodifier="AC" action="isOn" attribute="stress" offset="-2" thoughtBubble="ACGoodBubble" />
+        <attribute name="stress" startValue="35" minValue="0" maxValue="100" />
+        <attribute name="hearts" startValue="0" minValue="0" maxValue="100" />
+        <attribute name="walkSpeed" startValue="5" minValue="0" />
+        <!--<attribute name="orangeSpeed" startValue="13" minValue="0"/>
+            <attribute name="greenSpeed" startValue="6" minValue="0"/>
+            <attribute name="blueSpeed" startValue="6" minValue="0"/>
+            <attribute name="purpleSpeed" startValue="7" minValue="0"/>-->
+        <attribute name="LevelWhiteboardHearts" startValue="0" minValue="0" dontReset="1" />
+        <attribute name="WhiteboardHearts" startValue="0" minValue="0" />
+      </Employee>
+      <Employee name="Timothy" maxStressPerSecond="15" stressStatePointsPerSecondThreshold="5" proficiency1="green up" proficiency2="orange down" proficiency3="blue neutral" proficiency4="purple neutral">
+        <UsableHeartStations>
+          <!-- Tim can use -->
+          <heartstation name="Kitchen" />
+          <heartstation name="WaterCooler" />
+        </UsableHeartStations>
+        <TaskProficiencyLevels taskType="orange" initialLevel="0">
+          <workSpeed value="5" />
+          <workSpeed value="7" />
+          <workSpeed value="9" />
+          <workSpeed value="11" />
+        </TaskProficiencyLevels>
+        <TaskProficiencyLevels taskType="green" initialLevel="2">
+          <workSpeed value="8" />
+          <workSpeed value="10" />
+          <workSpeed value="13" />
+          <workSpeed value="15" />
+        </TaskProficiencyLevels>
+        <TaskProficiencyLevels taskType="blue" initialLevel="1">
+          <workSpeed value="6" />
+          <workSpeed value="8" />
+          <workSpeed value="10" />
+          <workSpeed value="12" />
+        </TaskProficiencyLevels>
+        <TaskProficiencyLevels taskType="purple" initialLevel="1">
+          <workSpeed value="4" />
+          <workSpeed value="6" />
+          <workSpeed value="8" />
+          <workSpeed value="10" />
+        </TaskProficiencyLevels>
+        <Description text="Neurotic financial type. Good at finance and bad at visual. Stresses out quickly and has weird destressors." />
+        <MoodifyCondition moodifier="SELF" action="workingOn:orange" attribute="stress" offset="7" thoughtBubble="OrangeTaskBadBubble" />
+        <MoodifyCondition moodifier="SELF" action="workingOn:green" attribute="stress" offset="5" />
+        <MoodifyCondition moodifier="SELF" action="workingOn:blue" attribute="stress" offset="5" name="TimothyBlueTaskMoodifier" />
+        <MoodifyCondition moodifier="SELF" action="workingOn:purple" attribute="stress" offset="7" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:Kitchen" attribute="stress" offset="-4" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:Kitchen" attribute="hearts" offset="1" />
+        <MoodifyCondition moodifier="Tara" action="atHeartStation:Whiteboard" attribute="stress" offset="1" thoughtBubble="WhiteboardBadBubble" />
+        <MoodifyCondition moodifier="NOTSELF" action="usingHeartStation:ArcadeMachine" attribute="stress" offset="1" thoughtBubble="ArcadeMachineBadBubble" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:Kitchen" attribute="levelKitchenHearts" offset="1" />
+        <attribute name="stress" startValue="0" minValue="0" maxValue="100" />
+        <attribute name="hearts" startValue="0" minValue="0" maxValue="100" />
+        <attribute name="walkSpeed" startValue="5" minValue="0" />
+        <!--<attribute name="orangeSpeed" startValue="5" minValue="0"/>
+            <attribute name="greenSpeed" startValue="13" minValue="0"/>
+            <attribute name="blueSpeed" startValue="8" minValue="0"/>
+            <attribute name="purpleSpeed" startValue="6" minValue="0"/>-->
+        <attribute name="levelKitchenHearts" startValue="0" minValue="0" maxValue="100" dontReset="1" />
+        <MoodifyCondition moodifier="AC" action="isOn" attribute="stress" offset="2" thoughtBubble="ACBadBubble" />
+        <MoodifyCondition moodifier="Radio" action="isOn" attribute="stress" offset="-2" thoughtBubble="RadioGoodBubble" />
+      </Employee>
+      <Employee name="Pearl" maxStressPerSecond="15" stressStatePointsPerSecondThreshold="5" proficiency1="orange up" proficiency2="green up" proficiency3="blue up" proficiency4="purple neutral">
+        <!-- Pearl can use -->
+        <UsableHeartStations>
+          <!-- only sometimes will she be allowed to use a couch. It will be specified in a level 14 xml -->
+          <!-- <heartstation name="Couch"/> -->
+          <heartstation name="Kitchen" />
+          <heartstation name="Smoking" />
+          <heartstation name="WaterCooler" />
+        </UsableHeartStations>
+        <TaskProficiencyLevels taskType="orange" initialLevel="2">
+          <workSpeed value="5" />
+          <workSpeed value="7" />
+          <workSpeed value="9" />
+          <workSpeed value="11" />
+        </TaskProficiencyLevels>
+        <TaskProficiencyLevels taskType="green" initialLevel="2">
+          <workSpeed value="5" />
+          <workSpeed value="7" />
+          <workSpeed value="9" />
+          <workSpeed value="11" />
+        </TaskProficiencyLevels>
+        <TaskProficiencyLevels taskType="blue" initialLevel="2">
+          <workSpeed value="5" />
+          <workSpeed value="7" />
+          <workSpeed value="9" />
+          <workSpeed value="11" />
+        </TaskProficiencyLevels>
+        <TaskProficiencyLevels taskType="purple" initialLevel="1">
+          <workSpeed value="5" />
+          <workSpeed value="7" />
+          <workSpeed value="9" />
+          <workSpeed value="11" />
+        </TaskProficiencyLevels>
+        <Description text="Company-obsessed office worker. Pretty good at everything. Hates when people aren't working." />
+        <MoodifyCondition moodifier="SELF" action="workingOn:orange" attribute="stress" offset="3" />
+        <MoodifyCondition moodifier="SELF" action="workingOn:green" attribute="stress" offset="3" />
+        <MoodifyCondition moodifier="SELF" action="workingOn:blue" attribute="stress" offset="3" />
+        <MoodifyCondition moodifier="SELF" action="workingOn:purple" attribute="stress" offset="3" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:Smoking" attribute="stress" offset="-4" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:Smoking" attribute="SmokingHearts" offset="1" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:Smoking" attribute="LevelSmokingHearts" offset="1" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:Kitchen" attribute="stress" offset="-4" thoughtBubble="KitchenGoodBubble" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:Kitchen" attribute="KitchenHearts" offset="1" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:Kitchen" attribute="LevelKitchenHearts" offset="1" />
+        <MoodifyCondition moodifier="NOTSELF" action="usingHeartStation:ArcadeMachine" attribute="stress" offset="1" thoughtBubble="ArcadeMachineBadBubble" />
+        <MoodifyCondition moodifier="NOTSELF" action="usingHeartStation:WaterCooler" attribute="stress" offset="1" thoughtBubble="WatercoolerBadBubble" />
+        <MoodifyCondition moodifier="NOTSELF" action="usingHeartStation:Whiteboard" attribute="stress" offset="1" thoughtBubble="WhiteboardBadBubble" />
+        <MoodifyCondition moodifier="NOTSELF" action="usingHeartStation:Bathroom" attribute="stress" offset="1" thoughtBubble="BathroomBadBubble" />
+        <MoodifyCondition moodifier="Radio" action="isOn" attribute="stress" offset="2" thoughtBubble="RadioBadBubble" />
+        <MoodifyCondition moodifier="AC" action="isOn" attribute="stress" offset="2" thoughtBubble="ACBadBubble" />
+        <attribute name="stress" startValue="0" minValue="0" maxValue="100" />
+        <attribute name="hearts" startValue="0" minValue="0" maxValue="100" />
+        <attribute name="walkSpeed" startValue="6" minValue="0" />
+        <!--<attribute name="orangeSpeed" startValue="9" minValue="0"/>
+            <attribute name="greenSpeed" startValue="9" minValue="0"/>
+            <attribute name="blueSpeed" startValue="9" minValue="0"/>
+            <attribute name="purpleSpeed" startValue="7" minValue="0"/>-->
+        <attribute name="TalkHearts" startValue="0" minValue="0" />
+        <attribute name="LevelTalkHearts" startValue="0" minValue="0" dontReset="1" />
+        <attribute name="SmokingHearts" startValue="0" minValue="0" />
+        <attribute name="LevelSmokingHearts" startValue="0" minValue="0" dontReset="1" />
+        <attribute name="KitchenHearts" startValue="0" minValue="0" />
+        <attribute name="LevelKitchenHearts" startValue="0" minValue="0" dontReset="1" />
+      </Employee>
+      <Employee name="Luke" maxStressPerSecond="15" stressStatePointsPerSecondThreshold="5" proficiency1="purple up" proficiency2="orange down" proficiency3="green down" proficiency4="blue neutral">
+        <!-- Luke can use -->
+        <UsableHeartStations>
+          <heartstation name="WaterCooler" />
+          <heartstation name="Bathroom" />
+        </UsableHeartStations>
+        <TaskProficiencyLevels taskType="orange" initialLevel="0">
+          <workSpeed value="5" />
+          <workSpeed value="7" />
+          <workSpeed value="9" />
+          <workSpeed value="11" />
+        </TaskProficiencyLevels>
+        <TaskProficiencyLevels taskType="green" initialLevel="0">
+          <workSpeed value="5" />
+          <workSpeed value="7" />
+          <workSpeed value="9" />
+          <workSpeed value="11" />
+        </TaskProficiencyLevels>
+        <TaskProficiencyLevels taskType="blue" initialLevel="1">
+          <workSpeed value="6" />
+          <workSpeed value="8" />
+          <workSpeed value="10" />
+          <workSpeed value="12" />
+        </TaskProficiencyLevels>
+        <TaskProficiencyLevels taskType="purple" initialLevel="2">
+          <workSpeed value="8" />
+          <workSpeed value="10" />
+          <workSpeed value="13" />
+          <workSpeed value="15" />
+        </TaskProficiencyLevels>
+        <Description text="Hypochondriac hipster. Good at writing. Likes things to be clean and is scared of illness." />
+        <MoodifyCondition moodifier="SELF" action="workingOn:orange" attribute="stress" offset="5" thoughtBubble="OrangeTaskBadBubble" />
+        <MoodifyCondition moodifier="SELF" action="workingOn:green" attribute="stress" offset="5" thoughtBubble="GreenTaskBadBubble" />
+        <MoodifyCondition moodifier="SELF" action="workingOn:blue" attribute="stress" offset="4" />
+        <MoodifyCondition moodifier="SELF" action="workingOn:purple" attribute="stress" offset="2" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:WaterCooler" attribute="stress" offset="-3" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:WaterCooler" attribute="WaterCoolerHearts" offset="1" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:WaterCooler" attribute="LevelWaterCoolerHearts" offset="1" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:Bathroom" attribute="stress" offset="-10" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:Bathroom" attribute="BathroomHearts" offset="1" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:Bathroom" attribute="LevelBathroomHearts" offset="1" />
+        <MoodifyCondition moodifier="Ashley" action="atHeartStation:Bathroom" attribute="stress" offset="4" thoughtBubble="BathroomBadBubble" />
+        <MoodifyCondition moodifier="ANY" action="usingHeartStation:Smoking" attribute="stress" offset="1" thoughtBubble="SmokingBadBubble" />
+        <MoodifyCondition moodifier="AC" action="isOn" attribute="stress" offset="2" thoughtBubble="ACBadBubble" />
+        <MoodifyCondition moodifier="Radio" action="isOn" attribute="stress" offset="-2" thoughtBubble="RadioGoodBubble" />
+        <attribute name="stress" startValue="0" minValue="0" maxValue="100" />
+        <attribute name="hearts" startValue="0" minValue="0" maxValue="100" />
+        <attribute name="walkSpeed" startValue="5" minValue="0" />
+        <attribute name="orangeSpeed" startValue="5" minValue="0" />
+        <attribute name="greenSpeed" startValue="5" minValue="0" />
+        <attribute name="blueSpeed" startValue="8" minValue="0" />
+        <attribute name="purpleSpeed" startValue="13" minValue="0" />
+        <attribute name="BathroomHearts" startValue="0" minValue="0" />
+        <attribute name="LevelBathroomHearts" startValue="0" minValue="0" dontReset="1" />
+        <attribute name="LevelWaterCoolerHearts" startValue="0" minValue="0" dontReset="1" />
+        <attribute name="WaterCoolerHearts" startValue="0" minValue="0" />
+      </Employee>
+      <Employee name="Duncan" maxStressPerSecond="15" stressStatePointsPerSecondThreshold="5" proficiency1="green neutral" proficiency2="blue neutral" proficiency3="orange neutral" proficiency4="purple neutral">
+        <!-- Duncan can use -->
+        <UsableHeartStations>
+          <!-- only sometimes will he be allowed to use an arcade machine. It will be specified in a levels 14 and 15  -->
+          <!--<heartstation name="ArcadeMachine"/>-->
+          <heartstation name="WaterCooler" />
+          <heartstation name="Whiteboard" />
+        </UsableHeartStations>
+        <TaskProficiencyLevels taskType="orange" initialLevel="1">
+          <workSpeed value="5" />
+          <workSpeed value="7" />
+          <workSpeed value="9" />
+          <workSpeed value="11" />
+        </TaskProficiencyLevels>
+        <TaskProficiencyLevels taskType="green" initialLevel="1">
+          <workSpeed value="5" />
+          <workSpeed value="7" />
+          <workSpeed value="9" />
+          <workSpeed value="11" />
+        </TaskProficiencyLevels>
+        <TaskProficiencyLevels taskType="blue" initialLevel="1">
+          <workSpeed value="5" />
+          <workSpeed value="7" />
+          <workSpeed value="9" />
+          <workSpeed value="11" />
+        </TaskProficiencyLevels>
+        <TaskProficiencyLevels taskType="purple" initialLevel="1">
+          <workSpeed value="5" />
+          <workSpeed value="7" />
+          <workSpeed value="9" />
+          <workSpeed value="11" />
+        </TaskProficiencyLevels>
+        <Description text="Denise's immediate boss. Man's man and business jargon obsessed. Passable but not great at everything." />
+        <MoodifyCondition moodifier="SELF" action="workingOn:orange" attribute="stress" offset="3" />
+        <MoodifyCondition moodifier="SELF" action="workingOn:green" attribute="stress" offset="3" />
+        <MoodifyCondition moodifier="SELF" action="workingOn:blue" attribute="stress" offset="3" />
+        <MoodifyCondition moodifier="SELF" action="workingOn:purple" attribute="stress" offset="3" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:Whiteboard" attribute="stress" offset="-3" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:Whiteboard" attribute="WhiteboardHearts" offset="1" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:Whiteboard" attribute="LevelWhiteboardHearts" offset="1" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:Treadmill" attribute="stress" offset="-3" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:Treadmill" attribute="TreadmillHearts" offset="1" />
+        <MoodifyCondition moodifier="NOTSELF" action="usingHeartStation:Whiteboard" attribute="stress" offset="1" />
+        <attribute name="stress" startValue="0" minValue="0" maxValue="100" />
+        <attribute name="hearts" startValue="0" minValue="0" maxValue="100" />
+        <attribute name="walkSpeed" startValue="5" minValue="0" />
+        <!--<attribute name="orangeSpeed" startValue="7" minValue="0"/>
+            <attribute name="greenSpeed" startValue="7" minValue="0"/>
+            <attribute name="blueSpeed" startValue="7" minValue="0"/>
+            <attribute name="purpleSpeed" startValue="7" minValue="0"/>-->
+        <attribute name="WhiteboardHearts" startValue="0" minValue="0" />
+        <attribute name="LevelWhiteboardHearts" startValue="0" minValue="0" dontReset="1" />
+        <attribute name="TreadmillHearts" startValue="0" minValue="0" />
+      </Employee>
+      <Employee name="Ashley" maxStressPerSecond="15" stressStatePointsPerSecondThreshold="5" proficiency1="orange up" proficiency2="green down" proficiency3="blue down" proficiency4="purple down">
+        <!-- Ashley can use -->
+        <UsableHeartStations>
+          <heartstation name="WaterCooler" />
+          <heartstation name="Bathroom" />
+        </UsableHeartStations>
+        <TaskProficiencyLevels taskType="orange" initialLevel="2">
+          <workSpeed value="7" />
+          <workSpeed value="9" />
+          <workSpeed value="12" />
+          <workSpeed value="14" />
+        </TaskProficiencyLevels>
+        <TaskProficiencyLevels taskType="green" initialLevel="0">
+          <workSpeed value="3" />
+          <workSpeed value="5" />
+          <workSpeed value="7" />
+          <workSpeed value="9" />
+        </TaskProficiencyLevels>
+        <TaskProficiencyLevels taskType="blue" initialLevel="0">
+          <workSpeed value="3" />
+          <workSpeed value="5" />
+          <workSpeed value="7" />
+          <workSpeed value="9" />
+        </TaskProficiencyLevels>
+        <TaskProficiencyLevels taskType="purple" initialLevel="0">
+          <workSpeed value="3" />
+          <workSpeed value="5" />
+          <workSpeed value="7" />
+          <workSpeed value="9" />
+        </TaskProficiencyLevels>
+        <Description text="Self-obsessed designer. Good at visual tasks. Bad at everything else. Hard to stress out but very moody." />
+        <MoodifyCondition moodifier="SELF" action="workingOn:orange" attribute="stress" offset="2" />
+        <MoodifyCondition moodifier="SELF" action="workingOn:green" attribute="stress" offset="2" thoughtBubble="GreenTaskBadBubble" />
+        <MoodifyCondition moodifier="SELF" action="workingOn:blue" attribute="stress" offset="2" thoughtBubble="BlueTaskBadBubble" />
+        <MoodifyCondition moodifier="SELF" action="workingOn:purple" attribute="stress" offset="2" thoughtBubble="PurpleTaskBadBubble" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:Bathroom" attribute="stress" offset="-10" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:Bathroom" attribute="BathroomHearts" offset="1" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:Bathroom" attribute="LevelBathroomHearts" offset="1" />
+        <MoodifyCondition moodifier="Luke" action="atHeartStation:Bathroom" attribute="stress" offset="4" thoughtBubble="BathroomBadBubble" />
+        <MoodifyCondition moodifier="ANY" action="usingHeartStation:Smoking" attribute="stress" offset="1" thoughtBubble="SmokingBadBubble" />
+        <MoodifyCondition moodifier="Radio" action="isOn" attribute="stress" offset="2" thoughtBubble="RadioBadBubble" />
+        <MoodifyCondition moodifier="AC" action="isOn" attribute="stress" offset="2" thoughtBubble="ACBadBubble" />
+        <attribute name="stress" startValue="0" minValue="0" maxValue="100" />
+        <attribute name="hearts" startValue="0" minValue="0" maxValue="100" />
+        <attribute name="walkSpeed" startValue="5" minValue="0" />
+        <!--<attribute name="orangeSpeed" startValue="12" minValue="0"/>
+            <attribute name="greenSpeed" startValue="3" minValue="0"/>
+            <attribute name="blueSpeed" startValue="3" minValue="0"/>
+            <attribute name="purpleSpeed" startValue="3" minValue="0"/>-->
+        <attribute name="BathroomHearts" startValue="0" minValue="0" />
+        <attribute name="LevelBathroomHearts" startValue="0" minValue="0" dontReset="1" />
+      </Employee>
+      <Employee name="Nadine" maxStressPerSecond="15" stressStatePointsPerSecondThreshold="5" proficiency1="green up" proficiency2="purple up" proficiency3="orange down" proficiency4="blue neutral">
+        <!-- Nadine can use -->
+        <UsableHeartStations>
+          <!-- only sometimes will she be allowed to use a treadmill. It will be specified in a level 27  -->
+          <!--<heartstation name="Treadmill"/> -->
+          <heartstation name="Smoking" />
+          <heartstation name="WaterCooler" />
+        </UsableHeartStations>
+        <TaskProficiencyLevels taskType="orange" initialLevel="0">
+          <workSpeed value="5" />
+          <workSpeed value="7" />
+          <workSpeed value="9" />
+          <workSpeed value="11" />
+        </TaskProficiencyLevels>
+        <TaskProficiencyLevels taskType="green" initialLevel="2">
+          <workSpeed value="9" />
+          <workSpeed value="11" />
+          <workSpeed value="14" />
+          <workSpeed value="16" />
+        </TaskProficiencyLevels>
+        <TaskProficiencyLevels taskType="blue" initialLevel="1">
+          <workSpeed value="5" />
+          <workSpeed value="7" />
+          <workSpeed value="9" />
+          <workSpeed value="11" />
+        </TaskProficiencyLevels>
+        <TaskProficiencyLevels taskType="purple" initialLevel="2">
+          <workSpeed value="9" />
+          <workSpeed value="11" />
+          <workSpeed value="14" />
+          <workSpeed value="16" />
+        </TaskProficiencyLevels>
+        <Description text="Efficient and sadistic office machine. Good with financials and writing. Bad with visual." />
+        <MoodifyCondition moodifier="SELF" action="workingOn:orange" attribute="stress" offset="4" thoughtBubble="OrangeTaskBadBubble" />
+        <MoodifyCondition moodifier="SELF" action="workingOn:green" attribute="stress" offset="4" />
+        <MoodifyCondition moodifier="SELF" action="workingOn:blue" attribute="stress" offset="4" thoughtBubble="BlueTaskBadBubble" />
+        <MoodifyCondition moodifier="SELF" action="workingOn:purple" attribute="stress" offset="4" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:Smoking" attribute="stress" offset="-4" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:Smoking" attribute="SmokingHearts" offset="1" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:Smoking" attribute="LevelSmokingHearts" offset="1" />
+        <MoodifyCondition moodifier="NOTSELF" action="usingHeartStation:Couch" attribute="stress" offset="1" thoughtBubble="CouchBadBubble" />
+        <MoodifyCondition moodifier="NOTSELF" action="usingHeartStation:WaterCooler" attribute="stress" offset="1" thoughtBubble="WatercoolerBadBubble" />
+        <MoodifyCondition moodifier="NOTSELF" action="usingHeartStation:Treadmill" attribute="stress" offset="1" thoughtBubble="TreadmillBadBubble" />
+        <MoodifyCondition moodifier="Brooke" action="workingOn:purple" attribute="stress" offset="5" thoughtBubble="PurpleTaskBadBubble" />
+        <MoodifyCondition moodifier="Brooke" action="workingOn:green" attribute="stress" offset="5" thoughtBubble="GreenTaskBadBubble" />
+        <MoodifyCondition moodifier="AC" action="isOn" attribute="stress" offset="-2" thoughtBubble="ACGoodBubble" />
+        <MoodifyCondition moodifier="Radio" action="isOn" attribute="stress" offset="3" thoughtBubble="RadioBadBubble" />
+        <attribute name="stress" startValue="0" minValue="0" maxValue="100" />
+        <attribute name="hearts" startValue="0" minValue="0" maxValue="100" />
+        <attribute name="walkSpeed" startValue="5" minValue="0" />
+        <!--<attribute name="orangeSpeed" startValue="5" minValue="0"/>
+            <attribute name="greenSpeed" startValue="14" minValue="0"/>
+            <attribute name="blueSpeed" startValue="7" minValue="0"/>
+            <attribute name="purpleSpeed" startValue="14" minValue="0"/> -->
+        <attribute name="MeanHearts" startValue="0" minValue="0" />
+        <attribute name="LevelSmokingHearts" startValue="0" minValue="0" dontReset="1" />
+        <attribute name="SmokingHearts" startValue="0" minValue="0" />
+      </Employee>
+      <Employee name="Brooke" maxStressPerSecond="15" stressStatePointsPerSecondThreshold="5" proficiency1="green up" proficiency2="blue up" proficiency3="orange up" proficiency4="purple up">
+        <!-- Brooke can use -->
+        <UsableHeartStations>
+          <!-- only sometimes will she be allowed to use a couch. It will be specified in a level 30  -->
+          <!--<heartstation name="Couch"/>-->
+          <heartstation name="Treadmill" />
+          <heartstation name="WaterCooler" />
+        </UsableHeartStations>
+        <TaskProficiencyLevels taskType="orange" initialLevel="2">
+          <workSpeed value="7" />
+          <workSpeed value="9" />
+          <workSpeed value="12" />
+          <workSpeed value="14" />
+        </TaskProficiencyLevels>
+        <TaskProficiencyLevels taskType="green" initialLevel="2">
+          <workSpeed value="7" />
+          <workSpeed value="9" />
+          <workSpeed value="12" />
+          <workSpeed value="14" />
+        </TaskProficiencyLevels>
+        <TaskProficiencyLevels taskType="blue" initialLevel="2">
+          <workSpeed value="7" />
+          <workSpeed value="9" />
+          <workSpeed value="12" />
+          <workSpeed value="14" />
+        </TaskProficiencyLevels>
+        <TaskProficiencyLevels taskType="purple" initialLevel="2">
+          <workSpeed value="7" />
+          <workSpeed value="9" />
+          <workSpeed value="12" />
+          <workSpeed value="14" />
+        </TaskProficiencyLevels>
+        <Description text="Denise's big boss. Hyper competitive and overworked. Good at everything, but easily stressed out." />
+        <MoodifyCondition moodifier="SELF" action="workingOn:orange" attribute="stress" offset="5" />
+        <MoodifyCondition moodifier="SELF" action="workingOn:green" attribute="stress" offset="5" />
+        <MoodifyCondition moodifier="SELF" action="workingOn:blue" attribute="stress" offset="5" />
+        <MoodifyCondition moodifier="SELF" action="workingOn:purple" attribute="stress" offset="5" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:Treadmill" attribute="stress" offset="-7" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:Treadmill" attribute="TreadmillHearts" offset="1" />
+        <MoodifyCondition moodifier="SELF" action="atHeartStation:Treadmill" attribute="LevelTreadmillHearts" offset="1" />
+        <MoodifyCondition moodifier="NOTSELF" action="usingHeartStation:ArcadeMachine" attribute="stress" offset="1" thoughtBubble="ArcadeMachineBadBubble" />
+        <MoodifyCondition moodifier="NOTSELF" action="usingHeartStation:WaterCooler" attribute="stress" offset="1" thoughtBubble="WatercoolerBadBubble" />
+        <MoodifyCondition moodifier="NOTSELF" action="usingHeartStation:Couch" attribute="stress" offset="1" thoughtBubble="CouchBadBubble" />
+        <MoodifyCondition moodifier="NOTSELF" action="usingHeartStation:Bathroom" attribute="stress" offset="1" thoughtBubble="BathroomBadBubble" />
+        <MoodifyCondition moodifier="NOTSELF" action="usingHeartStation:Treadmill" attribute="stress" offset="1" thoughtBubble="TreadmillBadBubble" />
+        <attribute name="stress" startValue="0" minValue="0" maxValue="100" />
+        <attribute name="hearts" startValue="0" minValue="0" maxValue="100" />
+        <attribute name="walkSpeed" startValue="6" minValue="0" />
+        <!--<attribute name="orangeSpeed" startValue="11" minValue="0"/>
+            <attribute name="greenSpeed" startValue="11" minValue="0"/>
+            <attribute name="blueSpeed" startValue="11" minValue="0"/>
+            <attribute name="purpleSpeed" startValue="11" minValue="0"/>-->
+        <attribute name="TreadmillHearts" startValue="0" minValue="0" />
+        <attribute name="LevelTreadmillHearts" startValue="0" minValue="0" dontReset="1" />
+        <MoodifyCondition moodifier="AC" action="isOn" attribute="stress" offset="1" thoughtBubble="ACBadBubble" />
+        <MoodifyCondition moodifier="Radio" action="isOn" attribute="stress" offset="1" thoughtBubble="RadioBadBubble" />
+      </Employee>
+    </EmployeeSettings>
+    <OfficeManager maxActionQueueLength="8" stressStatePointsPerSecondThreshold="1" overdueTaskClearedStressReduction="2.5">
+      <!-- Denise can use -->
+      <UsableHeartStations>
+        <!-- only sometimes will she be allowed to use the arcade machine. It will be specified in a level 16  -->
+        <!--  <heartstation name="ArcadeMachine"/>-->
+        <heartstation name="WaterCooler" />
+      </UsableHeartStations>
+      <OverdueTaskStressTable>
+        <StressOffset value="-3" />
+        <StressOffset value="1" />
+        <StressOffset value="2" />
+        <StressOffset value="3" />
+        <StressOffset value="3.5" />
+        <StressOffset value="4" />
+        <StressOffset value="4.25" />
+        <StressOffset value="4.5" />
+      </OverdueTaskStressTable>
+      <attribute name="stress" startValue="0" minValue="0" maxValue="100" />
+      <attribute name="walkSpeed" startValue="10" minValue="0" />
+    </OfficeManager>
+    <TaskSettings>
+      <TaskSize name="small" hitpoints="25" overdueTime="10" cashValue="1" />
+      <TaskSize name="medium" hitpoints="35" overdueTime="15" cashValue="2" />
+      <TaskSize name="large" hitpoints="45" overdueTime="15" cashValue="3" />
+    </TaskSettings>
+  </GlobalSettings>
+</Work>
